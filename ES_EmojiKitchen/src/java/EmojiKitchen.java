@@ -30,7 +30,7 @@ public class EmojiKitchen extends HttpServlet {
             out.println("<body>");
             out.println("<form>");
             out.println("<h1>Servlet EmojiKitchen at " + request.getContextPath() + "</h1>");
-            if(request.getParameter("emoji1") != null && request.getParameter("emoji2") != null){
+            if(request.getParameter("emoji1") == null && request.getParameter("emoji2") == null){
             out.println("<table>");
             for (int i = 0; i < 4; i++) {
                 out.println("<tr>");
