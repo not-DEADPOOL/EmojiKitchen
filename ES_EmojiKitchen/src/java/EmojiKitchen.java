@@ -30,7 +30,7 @@ public class EmojiKitchen extends HttpServlet {
             out.println("<body>");
             out.println("<form>");
             out.println("<h1>Servlet EmojiKitchen at " + request.getContextPath() + "</h1>");
-            if(request.getHeader("emoji1") != null && request.getHeader("emoji2") != null){
+            if(request.getParameter("emoji1") != null && request.getParameter("emoji2") != null){
             out.println("<table>");
             for (int i = 0; i < 4; i++) {
                 out.println("<tr>");
@@ -58,10 +58,9 @@ public class EmojiKitchen extends HttpServlet {
             out.println("<button type='submit'>INVIA</button>");
             out.println("</form>");
             }else{
-                String emoji1 = request.getHeader("emoji1");
-                String emoji2 = request.getHeader("emoji2");
-                out.println(request.getHeader("emoji1"));
-            out.println("<img src='https://emojik.vercel.app/s/" + emoji1 + "_" + emoji2+ "?size=512' />");
+                String emoji1 = request.getParameter("emoji1");
+                String emoji2 = request.getParameter("emoji2");
+                out.println("<img src='https://emojik.vercel.app/s/" + emoji1 + "_" + emoji2+ "?size=512' />");
             }
             out.println("</body>");
             out.println("</html>");
@@ -69,13 +68,8 @@ public class EmojiKitchen extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
-    @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Emoji Kitchen";
     }// </editor-fold>
 
 }
